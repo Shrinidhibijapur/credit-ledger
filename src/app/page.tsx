@@ -12,6 +12,19 @@ import Settings from "@/components/Settings";
 import Toast, { type ToastMessage } from "@/components/Toast";
 import { Home, Users, Settings as SettingsIcon, LogOut, BookOpen } from "lucide-react";
 
+// Helper function to generate UUID v4 with a fallback for older devices
+function generateUUID(): string {
+  if (typeof window !== "undefined" && window.crypto && typeof window.crypto.randomUUID === "function") {
+    return window.crypto.randomUUID();
+  }
+  // Fallback for older browsers
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
+    const r = (Math.random() * 16) | 0;
+    const v = c === "x" ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+}
+
 export default function App() {
   const [mounted, setMounted] = useState<boolean>(false);
   const [isUnlocked, setIsUnlocked] = useState<boolean>(false);
@@ -81,7 +94,7 @@ export default function App() {
         showToast("ಗ್ರಾಹಕರ ವಿವರಗಳು ಬದಲಾಗಿವೆ / Profile updated!", "success");
       } else {
         // Create Customer
-        const newId = crypto.randomUUID();
+        const newId = generateUUID();
         await db.customers.add({
           id: newId,
           name: data.name,
@@ -96,7 +109,7 @@ export default function App() {
         // If they have opening balance, write it as a transaction
         if (data.balance && data.balance > 0) {
           await db.transactions.add({
-            id: crypto.randomUUID(),
+            id: generateUUID(),
             customerId: newId,
             type: "credit",
             amount: data.balance,
@@ -151,7 +164,7 @@ export default function App() {
         if (!txType) return;
 
         await db.transactions.add({
-          id: crypto.randomUUID(),
+          id: generateUUID(),
           customerId: custId,
           type: txType,
           amount: txData.amount,
