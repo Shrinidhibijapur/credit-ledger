@@ -103,9 +103,12 @@ export default function CustomerDetail({
       ? `${customer.nameKannada} (${customer.name})`
       : customer.name;
 
-    const message = `*Digital Khata / ಡಿಜಿಟಲ್ ಖಾತಾ*\n\n` +
+    const message = `*Shrinivas General Stores*\n` +
+      `*Digital Khata / ಡಿಜಿಟಲ್ ಖಾತಾ*\n\n` +
       `ಗ್ರಾಹಕರ ಹೆಸರು / Customer Name: *${nameText}*\n` +
       `ಬಾಕಿ ಹಣ / Balance Amount: *₹${formattedBalance}*\n\n` +
+      `PhonePe Number:8123190771\n` +
+      `Account Holder: Shrinivas Suresh Bijapur\n` +
       `ದಯವಿಟ್ಟು ಬಾಕಿ ಹಣವನ್ನು ಪಾವತಿಸಿ. / Please settle the pending balance.\n` +
       `ಧನ್ಯವಾದಗಳು! / Thank you!`;
 
@@ -393,7 +396,7 @@ export default function CustomerDetail({
       {/* Print-only Statement layout */}
       <div id="print-section" className="hidden print:block p-8 bg-white text-black font-sans">
         <div className="text-center space-y-2 border-b border-dashed border-gray-300 pb-4">
-          <h1 className="text-2xl font-black tracking-tight">ಡಿಜಿಟಲ್ ಖಾತಾ / Digital Khata</h1>
+          <h1 className="text-2xl font-black tracking-tight">ಶ್ರೀನಿವಾಸ್ ಜನರಲ್ ಸ್ಟೋರ್ಸ್ / Shrinivas General Stores</h1>
           <p className="text-sm font-semibold text-gray-500">ವ್ಯವಹಾರಗಳ ವಿವರ / Statement of Account</p>
           <p className="text-xs text-gray-400">Date: {new Date().toLocaleDateString("en-IN", { dateStyle: "long" })}</p>
         </div>
@@ -478,8 +481,16 @@ export default function CustomerDetail({
           </table>
         </div>
 
+        <div className="mt-8 pt-4 border-t border-gray-200 text-sm grid grid-cols-2 gap-4">
+          <div className="text-left">
+            <p className="text-xs text-gray-400 font-bold uppercase">Payment Info / ಪಾವತಿ ವಿವರಗಳು</p>
+            <p className="font-semibold mt-1">PhonePe: [PhonePe Number]</p>
+            <p className="text-xs text-gray-500">Account Holder: [Father's Name]</p>
+          </div>
+        </div>
+
         <div className="mt-12 pt-6 border-t border-dashed border-gray-300 text-center text-xs text-gray-400 font-medium">
-          <p>Generated via Digital Khata App. Thank you for your business!</p>
+          <p>Generated via Shrinivas General Stores. Thank you for your business!</p>
         </div>
       </div>
     </>
