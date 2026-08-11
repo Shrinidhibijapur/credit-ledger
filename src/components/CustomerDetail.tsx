@@ -107,8 +107,8 @@ export default function CustomerDetail({
       `*Digital Khata / ಡಿಜಿಟಲ್ ಖಾತಾ*\n\n` +
       `ಗ್ರಾಹಕರ ಹೆಸರು / Customer Name: *${nameText}*\n` +
       `ಬಾಕಿ ಹಣ / Balance Amount: *₹${formattedBalance}*\n\n` +
-      `PhonePe Number:8123190771\n` +
-      `Account Holder: Shrinivas Suresh Bijapur\n` +
+      `PhonePe Number: 8123190771\n` +
+      `Account Holder: *Shrinivas Suresh Bijapur* \n\n` +
       `ದಯವಿಟ್ಟು ಬಾಕಿ ಹಣವನ್ನು ಪಾವತಿಸಿ. / Please settle the pending balance.\n` +
       `ಧನ್ಯವಾದಗಳು! / Thank you!`;
 
@@ -484,8 +484,8 @@ export default function CustomerDetail({
         <div className="mt-8 pt-4 border-t border-gray-200 text-sm grid grid-cols-2 gap-4">
           <div className="text-left">
             <p className="text-xs text-gray-400 font-bold uppercase">Payment Info / ಪಾವತಿ ವಿವರಗಳು</p>
-            <p className="font-semibold mt-1">PhonePe: [PhonePe Number]</p>
-            <p className="text-xs text-gray-500">Account Holder: [Father's Name]</p>
+            <p className="font-semibold mt-1">PhonePe: 8123190771</p>
+            <p className="text-xs text-gray-500">Account Holder: Shrinivas Suresh Bijapur</p>
           </div>
         </div>
 
